@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,9 +36,6 @@
             transition: 0.3s;
             font-size: large;
         }
-
-     
-
         .sidebar h4 {
             text-align: center;
         }
@@ -47,8 +43,6 @@
         .sidebar.hidden {
             left: -250px;
         }
-
-        
         .navbar {
             margin-left: 250px;
             z-index: 1050;
@@ -59,7 +53,6 @@
             margin-right: 15px;
             display: none;
         }
-
         .overlay {
             position: fixed;
             top: 0;
@@ -70,22 +63,17 @@
             display: none;
             z-index: 999;
         }
-
         .overlay.active {
             display: block;
         }
-
         .content {
-            margin-top: 60px;
             padding: 20px;
             margin-left: 250px;
             transition: margin-left 0.3s;
         }
-
         .content.compact {
             margin-left: 0;
         }
-
         @media (max-width: 768px) {
             
             .sidebar {
@@ -99,7 +87,7 @@
             .content {
                 margin-left: 0;
                 padding: 0;
-                margin-top: 70px;
+                margin-top: 20px;
 
             }
             .sidebar a {
@@ -122,75 +110,118 @@
                 display: inline;
             }
         }
-        
-.dashboard-container {
-    display: flex;
-    flex-wrap: wrap;
-}
+       /* Existing styling */
 
-.dashboard-card {
-    flex: 1 1 30%;
-    margin: 10px;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 0px solid black;
-}
+       .table thead th {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .table tbody tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        body {
+            display: flex;
+            background-color: #f8f9fa;
+        }
+
+        .table-responsive {
+            margin-bottom: 20px;
+        }
+
+        .table th,
+        .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .table td {
+            background-color: #f8f9fa;
+        }
+
+        .table .btn {
+            width: 80px;
+            margin: 2px;
+        }
+
+        .table .description {
+            max-width: 700px;
+            overflow: hidden;
+        }
+
+        /* General Button Styles */
+        .btn {
+            font-size: 14px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Primary Action Buttons */
+        .btn-dark {
+            background-color: #343a40;
+            color: #FFFFFF;
+            border: none;
+            font-size: 1rem;
+            padding: 8px 15px;
+
+        }
+
+        .btn-dark:hover {
+            background-color: #343a40;
+            color: #FFFFFF;
+        }
+
+        /* Edit Buttons */
+        .btn-info {
+            background-color: #17A2B8;
+            color: #FFFFFF;
+            border: none;
+        }
+
+        .btn-info:hover {
+            background-color: #117A8B;
+            color: #FFFFFF;
+        }
 
 
+        /* View Applications Buttons */
+        .btn-purple {
+            background-color: #6F42C1;
+            color: #FFFFFF;
+            border: none;
+        }
 
-.dashboard-card .card-body {
-    display: flex;
-    align-items: center;
-    /* gap: 2rem; */
-}
+        .btn-purple:hover {
+            background-color: #5A3191;
+            color: #FFFFFF;
+        }
 
-h2 {
-    color:  #343a40;
+       
+        /* Apply Modal */
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+        }
 
-}
+        .modal-body {
+            padding: 20px;
+        }
 
-.card-icon {
-    font-size: 3.2rem;
-    color:  #343a40;
-    margin-right: 13px;
-    /* gap: 5rem; */
-    display: flex;
-}
+        .form-control {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
 
-.card-content {
-    flex: 1;
-}
-
-.card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color:  #343a40;
-
-}
-
-.card-text {
-    font-size: 1.18rem;
-    color:  #343a40;
-    font-weight: 600;
-}
-
-.count {
-    text-decoration: none;
-}
-
-@media (max-width: 768px) {
-    .dashboard-card {
-        flex: 1 1 100%;
-    }
-}
-/* 
-.content {
-    margin-left: 250px;
-    padding: 20px;
-    width: calc(100% - 250px);
-} */
-
+        .form-control:focus {
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.6);
+        }
     </style>
 </head>
 
@@ -227,200 +258,262 @@ h2 {
 
     <!-- Content -->
     <div class="content" id="content">
-        <div class="container">
-            <h3>Dashboard</h3>
-            <div class="dashboard-container row">
-                <!-- Students Count Card -->
-                <div class="col-md-6 col-lg-4 col-sm-12 ">
-                    <div class="card dashboard-card">
-                        <a class="count" href="student_management.html" style="text-decoration: none;">
-                            <div class="card-body">
-                                <div class="card-icon">
-                                    <i class="fas fa-user-graduate"></i>
-                                </div>
-                                <div class="card-content">
-                                    <h5 class="card-title">Total Students</h5>
-                                    <p class="card-text">2</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+       
+        <div class="container-fluid mx-3 mt-5 pt-2">
+            <div class="row mb-3 align-items-center">
+                <div class="col-6">
+                    <h2 class="h2">Manage Events</h2> <!-- Adjusted heading size for better fit -->
                 </div>
-
-                <!-- Companies Count Card -->
-                <div class="col-md-6 col-lg-4 col-sm-12 ">
-                    <div class="card dashboard-card">
-                        <a class="count" href="company_management.html" style="text-decoration: none;">
-                            <div class="card-body">
-                                <div class="card-icon">
-                                    <i class="fas fa-building"></i>
-                                </div>
-                                <div class="card-content">
-                                    <h5 class="card-title">Total Companies</h5>
-                                    <p class="card-text">2</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Profiles Count Card -->
-                <div class="col-md-6 col-lg-4 col-sm-12 ">
-                    <div class="card dashboard-card">
-                            <div class="card-body">
-                                <div class="card-icon">
-                                    <i class="fas fa-id-card"></i>
-                                </div>
-                                <div class="card-content">
-                                    <h5 class="card-title">Total Profiles</h5>
-                                    <p class="card-text">1</p>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-
-                <!-- Vacancies Count Card -->
-                <div class="col-md-6 col-lg-4 col-sm-12 ">
-                    <div class="card dashboard-card">
-                        <a href="vacancies_management.html" style="text-decoration: none;">
-                            <div class="card-body">
-                                <div class="card-icon">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <div class="card-content">
-                                    <h5 class="card-title">Total Vacancies</h5>
-                                    <p class="card-text">4</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-
-                <!-- Events Count Card -->
-                <div class="col-md-6 col-lg-4 col-sm-12 ">
-                    <div class="card dashboard-card">
-                        <a href="admin_events.html" style="text-decoration: none;">
-                            <div class="card-body">
-                                <div class="card-icon">
-                                    <i class="fas fa-calendar-alt"></i>
-                                </div>
-                                <div class="card-content">
-                                    <h5 class="card-title">Total Events</h5>
-                                    <p class="card-text">4</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-
-                <!-- Event Registrations Count Card -->
-                <div class="col-md-6 col-lg-4 col-sm-12 ">
-                    <div class="card dashboard-card">
-                        <!-- <a href="admin_event_registration.html" style="text-decoration: none;"> -->
-                            <div class="card-body">
-                                <div class="card-icon">
-                                    <i class="fas fa-calendar-check"></i>
-                                </div>
-                                <div class="card-content">
-                                    <h5 class="card-title">Event Registrations</h5>
-                                    <p class="card-text">1</p>
-                                </div>
-                            </div>
-                        <!-- </a> -->
-                    </div>
+                <div class="col-6 text-end">
+                    <a href="add_event.html" class="btn btn-dark btn-sm">Add Event</a> <!-- Used `btn-sm` for smaller button on mobile -->
                 </div>
             </div>
         </div>
-        <div class="container">
-            <!-- Individual Vacancy Cards Section -->
-            <h3 class="mt-2">Applications: (3)</h3></a>
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12">
-                    <a href="view_applications.html" style="
-    text-decoration: none;">
-                        <div class="card dashboard-card">
-                            <div class="card-body d-flex align-items-center">
-                                <div class="card-icon">
-                                    <i class="fas fa-clipboard-list"></i>
-                                </div>
-                                <div class="card-content">
-                                    <h5 class="card-title">Data Analyst: DataCorp                                    </h5>
-                                    
-                                    <p class="card-text">
-                                        Applications:</strong> 3
-                                    </p>
+        
+        
+            <!-- Cards for Mobile View -->
+            <div class="row d-md-none">
+                <div class="col-12 mb-3 mx-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Web Development Workshop</h5>
+                            <p class="card-text"><strong>Description:</strong> Master the latest web development frameworks and techniques. Enhance your skills with hands-on practice and real-world projects.</p>
+                            <p class="card-text"><strong>Date:</strong> 2024-12-16</p>
+                            <p class="card-text"><strong>Location:</strong> New York</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-secondary " data-bs-toggle="modal" data-bs-target="#registrationsModal" data-event-title="Web Development Workshop">View</button>
+                                <button class="btn btn-danger   toggle-status" data-status="enabled">Enable</button>
+                                <div>
+                                    <a href="edit_event.html" class="btn btn-info   text-light">Edit</a>
+                                    <a href="delete_event.html" class="btn btn-danger  " onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
                                 </div>
                             </div>
                         </div>
-                        </a>
                     </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <a href="view_applications.html" style="
-        text-decoration: none;">
-                            <div class="card dashboard-card">
-                                <div class="card-body d-flex align-items-center">
-                                    <div class="card-icon">
-                                        <i class="fas fa-clipboard-list"></i>
-                                    </div>
-                                    <div class="card-content">
-                                        <h5 class="card-title">Software Engineer
-                                            : TechCorp                                    </h5>
-                                        
-                                        <p class="card-text">
-                                            Applications:</strong> 0
-                                        </p>
-                                    </div>
+                </div>
+        
+                <!-- Repeat similar cards for other events -->
+                <div class="col-12 mb-3 mx-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Cloud Computing Seminar</h5>
+                            <p class="card-text"><strong>Description:</strong> Understand the latest trends in cloud computing. Learn how cloud solutions can optimize your business operations and scalability.</p>
+                            <p class="card-text"><strong>Date:</strong> 2024-12-19</p>
+                            <p class="card-text"><strong>Location:</strong> Boston</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-secondary  " data-bs-toggle="modal" data-bs-target="#registrationsModal" data-event-title="Cloud Computing Seminar">View</button>
+                                <button class="btn btn-success   toggle-status" data-status="enabled">Enable</button>
+                                <div>
+                                    <a href="edit_event.html" class="btn btn-info   text-light">Edit</a>
+                                    <a href="delete_event.html" class="btn btn-danger  " onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
                                 </div>
                             </div>
-                            </a>
                         </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12">
-                            <a href="view_applications.html" style="
-            text-decoration: none;">
-                                <div class="card dashboard-card">
-                                    <div class="card-body d-flex align-items-center">
-                                        <div class="card-icon">
-                                            <i class="fas fa-clipboard-list"></i>
-                                        </div>
-                                        <div class="card-content">
-                                            <h5 class="card-title">UI/UX Designer: DesignWorks
-                                            </h5>
-                                            
-                                            <p class="card-text">
-                                                Applications:</strong> 0
-                                            </p>
-                                        </div>
-                                    </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3 mx-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Cybersecurity Bootcamp</h5>
+                            <p class="card-text"><strong>Description:</strong> Learn to secure systems against cyber threats. Gain practical knowledge on protecting data, networks, and digital assets.</p>
+                            <p class="card-text"><strong>Date:</strong> 2024-12-18	</p>
+                            <p class="card-text"><strong>Location:</strong> Seattle</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-secondary  " data-bs-toggle="modal" data-bs-target="#registrationsModal" data-event-title="Cloud Computing Seminar">View</button>
+                                <button class="btn btn-success   toggle-status" data-status="enabled">Enable</button>
+                                <div>
+                                    <a href="edit_event.html" class="btn btn-info   text-light">Edit</a>
+                                    <a href="delete_event.html" class="btn btn-danger  " onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
                                 </div>
-                                </a>
                             </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12">
-                                <a href="view_applications.html" style="
-                text-decoration: none;">
-                                    <div class="card dashboard-card">
-                                        <div class="card-body d-flex align-items-center">
-                                            <div class="card-icon">
-                                                <i class="fas fa-clipboard-list"></i>
-                                            </div>
-                                            <div class="card-content">
-                                                <h5 class="card-title">DevOps Engineer: CloudNet                                    </h5>
-                                                
-                                                <p class="card-text">
-                                                    Applications:</strong> 0
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3 mx-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Blockchain Hackathon</h5>
+                            <p class="card-text"><strong>Description:</strong> Develop blockchain applications and compete for prizes. Collaborate with like-minded developers to create innovative solutions using blockchain technology.</p>
+                            <p class="card-text"><strong>Date:</strong> 2024-12-22	</p>
+                            <p class="card-text"><strong>Location:</strong> Austin</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-secondary  " data-bs-toggle="modal" data-bs-target="#registrationsModal" data-event-title="Cloud Computing Seminar">View</button>
+                                <button class="btn btn-danger   toggle-status" data-status="enabled">Enable</button>
+                                <div>
+                                    <a href="edit_event.html" class="btn btn-info   text-light">Edit</a>
+                                    <a href="delete_event.html" class="btn btn-danger  " onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Original Table for Desktop View -->
+            <div class="d-none d-md-block">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Registrations</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+               
+                        <tr>
+                            <td>Web Development Workshop         </td>
+                            <td>Master the latest web development frameworks and techniques. Enhance your skills with hands-on practice and real-world projects.
+
+                                </td>
+                            <td>2024-12-16
+                            </td>
+                            <td>New York
+                            </td>
+                            <td>
+                                <button class="btn btn-secondary text-light" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#registrationsModal" 
+                                        data-event-title="<?= htmlspecialchars($event['title']); ?>">
+                                    View 
+                                </button>
+                            </td>
+                            <td><button class="btn btn-danger toggle-status" data-status="enabled">Enable</button></td>
+                            <td>
+                                <a href="edit_event.html" class="btn btn-info text-light  ">Edit</a>
+                                <a href="delete_event.html" class="btn btn-danger  " onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
+                            </td>
+                        </tr>   
+                        
+                        <tr>
+                            <td>Cloud Computing Seminar                            </td>
+                            <td>Understand the latest trends in cloud computing. Learn how cloud solutions can optimize your business operations and scalability.
+                                </td>
+                            <td>2024-12-19
+
+                            </td>
+                            <td>Boston
+                            </td>
+                            <td>
+                                <button class="btn btn-secondary text-light" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#registrationsModal" 
+                                        data-event-title="<?= htmlspecialchars($event['title']); ?>">
+                                    View 
+                                </button>
+                            </td>
+                            <td><button class="btn btn-danger toggle-status" data-status="enabled">Enable</button></td>
+                            <td>
+                                <a href="edit_event.html" class="btn btn-info text-light  ">Edit</a>
+                                <a href="delete_event.html" class="btn btn-danger  " onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
+                            </td>
+                        </tr>   
+                        <tr>
+                            <td>Cybersecurity Bootcamp
+                            </td>
+                            <td>Learn to secure systems against cyber threats. Gain practical knowledge on protecting data, networks, and digital assets.
+
+
+
+                                </td>
+                            <td>2024-12-18
+
+                            </td>
+                            <td>Seattle
+                            </td>
+                            <td>
+                                <button class="btn btn-secondary text-light" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#registrationsModal" 
+                                        data-event-title="<?= htmlspecialchars($event['title']); ?>">
+                                    View 
+                                </button>
+                            </td>
+
+                                
+                                <td><button class="btn btn-danger toggle-status" data-status="enabled">Enable</button></td>
+
+                            </td>
+                            <td>
+                                <a href="edit_event.html" class="btn btn-info text-light  ">Edit</a>
+                                <a href="delete_event.html" class="btn btn-danger  " onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
+                            </td>
+                        </tr>        
+                        <tr>
+                            <td>Blockchain Hackathon
+                            </td>
+                            <td>Develop blockchain applications and compete for prizes. Collaborate with like-minded developers to create innovative solutions using blockchain technology.
+
+
+
+
+
+                                </td>
+                            <td>2024-12-22
+                            </td>
+                            <td>Austin
+                            </td>
+                            <td>
+                                <button class="btn btn-secondary text-light" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#registrationsModal" 
+                                        data-event-title="<?= htmlspecialchars($event['title']); ?>">
+                                    View 
+                                </button>
+                            </td>
+
+                                
+                                <td><button class="btn btn-danger toggle-status" data-status="enabled">Enable</button></td>
+
+                            </td>
+                            <td>
+                                <a href="edit_event.html" class="btn btn-info text-light  ">Edit</a>
+                                <a href="delete_event.html" class="btn btn-danger  " onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
+                            </td>
+                        </tr>               
+            </tbody>
+                </table>
+            </div>
+        </div>
+        
+
+    <!-- Registrations Modal -->
+    <div class="modal fade" id="registrationsModal" tabindex="-1" aria-labelledby="registrationsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Event Registrations</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>meet</td>
+                                <td>meet@gmail.com</td>
+                                <td>1235666355</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- JavaScript -->
     <script>
+  
+   
+       
         const sidebar = document.getElementById('sidebar');
         const sidebarToggle = document.getElementById('sidebarToggle');
         const overlay = document.getElementById('overlay');
@@ -454,7 +547,24 @@ h2 {
             }
         });
     </script>
-
+    <script>
+        // Toggle Enable/Disable Event Status
+  $('.toggle-status').on('click', function() {
+            const button = $(this); // Get the clicked button
+            const currentStatus = button.data('status'); // Get the current status (enabled or disabled)
+            
+            // Toggle the button's status and appearance
+            if (currentStatus === 'enabled') {
+                button.removeClass('btn-danger').addClass('btn-success');
+                button.text('Disable');
+                button.data('status', 'disabled'); // Change the status to 'disabled'
+            } else {
+                button.removeClass('btn-success').addClass('btn-danger');
+                button.text('Enable');
+                button.data('status', 'enabled'); // Change the status to 'enabled'
+            }
+        });
+    </script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
